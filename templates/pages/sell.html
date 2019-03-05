@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="sellmybook-box">
+        <div class="sellmybook-left-box">
+            <h1>Sell my book</h1>
+            <form>
+                <input type="text" name="Book name" placeholder="Book name"/>
+
+                <input type="text" name="Price" placeholder="Price"/>
+
+                <input type="text" name="Publisher" placeholder="Publisher"/>
+
+                <h5>Published Year:</h5>
+                <select id="year" name="year">
+                    <script>
+                        for (var i = 1900; i < 2019; i++) {
+                            document.write('<option value="' + i + '">' + i + '</option>');
+                        }
+                    </script>
+
+                </select>
+
+                <h5>Condition:</h5>
+                <select id="myselect-condition" class="dropdownbox">
+                    <option>Brand New</option>
+                    <option>Like New</option>
+                    <option>Very Good</option>
+                    <option>Good</option>
+                </select>
+
+                <h5>Cover Type:</h5>
+                <select id="myselect-cover_type" class="dropdownbox">
+                    <option>Hard</option>
+                    <option>Soft</option>
+                    <option>None</option>
+                </select>
+
+                <h5>Category:</h5>
+                <select id="myselect-category" class="dropdownbox">
+                    <option>Novel</option>
+                    <option>Education</option>
+                    <option>Comics</option>
+                    <option>For kids</option>
+                    <option>Cooking</option>
+                    <option>Driving lisence</option>
+                    <option>City guide</option>
+                    <option>Politics</option>
+                    <option>Medicine</option>
+                    <option>Stationery</option>
+                    <option>Magazing</option>
+                    <option>Biography</option>
+                    <option>History</option>
+                    <option>Health & Fitness</option>
+                    <option>Religion</option>
+                    <option>Travel</option>
+                    <option>Nepali</option>
+                    <option>LokSewa</option>
+                    <option>Technology</option>
+                    <option>Others</option>
+                </select>
+
+                <input type="text" name="Language" placeholder="Language"/>
+                <input type="text" name="ISBN no." placeholder="ISBN no."/>
+                <input type="text" name="Total pages" placeholder="Total pages"/>
+                <h5>Book Description:</h5>
+                <textarea name="message" class="form-control" placeholder="Book Description" rows="8"
+                          required></textarea>
+
+
+                <input type="button" onclick="window.location.href=''" name="login-button" value="Sell"/>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

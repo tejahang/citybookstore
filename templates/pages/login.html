@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div id="login-box">
+        {% include '_alerts.html'%}
+        <div class="left-box">
+            <h1>Log in</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required/>
+                <input type="password" name="password" placeholder="Password" required/>
+
+                <input type="submit" name="login-button" value="log in"/>
+            </form>
+        </div>
+
+
+        <div class="right-box">
+            <span class="signinwith">Or<br/>Log in with</span>
+            <button class="social facebook">Log in with Facebook</button>
+            <button class="social google">Log in with Google+</button>
+            <hr>
+            <h4>New member?</h4>
+            <input type="button" onclick="window.location.href='{% url 'users:register' %}'" name="signup-button"
+                   value="sign up"/>
+        </div>
+
+    </div>
+{% endblock %}

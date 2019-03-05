@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="howitworks-box">
+
+        <div class="howitworks-left-box">
+            <h1>How it works</h1>
+            <hr>
+            <br>
+
+            <h3>What can we do here?</h3>
+            Buy and sell books
+            -Used and new
+            <hr>
+            <br>
+
+            <h3>How can I sell my book?</h3>
+            - Click on <a href="{% url 'books:sell-my-book' %}">"Sell my book"</a><br>
+            - Fill in the information about the book.<br>
+            - Sell It!<br>
+            <hr>
+            <br>
+
+            <h3>How can I buy a book?</h3>
+            - Select a book you want.<br>
+            - See details.<br>
+            - Add to cart.<br>
+            - or Buy by contacting the seller.<br>
+
+        </div>
+
+        <div class="howitworks-right-box">
+
+        </div>
+
+    </div>
+{% endblock %}

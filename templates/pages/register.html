@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="signup-box">
+        {% include '_alerts.html' %}
+        <div class="left-box">
+            <h1> Create your Account</h1>
+
+            <form method="POST" action="{% url 'users:register' %}">
+                {% csrf_token %}
+
+                <input type="text" name="first_name" placeholder="First name" required/>
+                <input type="text" name="last_name" placeholder="Last name" required/>
+                <input type="text" name="username" placeholder="Username" required/>
+                <input type="email" name="email" placeholder="example@company.com" required/>
+                <input type="password" name="password1" placeholder="Password" required/>
+
+                <input type="password" name="password2" placeholder="Confirm password" required/>
+
+                <input type="submit" name="signup-button" value="Sign Up"/>
+
+                <h6>By clicking 'SIGN UP' I agree to <a href="#">Private Policy</a></h6>
+
+            </form>
+
+        </div>
+
+        <div class="right-box">
+            <span class="signinwith">Or<br/>Sign up with</span>
+            <button class="social facebook">Sign up with Facebook</button>
+            <button class="social google">Sign up with Google+</button>
+            <hr>
+            <h4>Alredy a member?</h4>
+            <input type="button" onclick="window.location.href='{% url 'users:login' %}'" name="login-button"
+                   value="LOG IN"/>
+        </div>
+
+    </div>
+{% endblock %}
