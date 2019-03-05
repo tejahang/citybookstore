@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
     <div id="cart-box">
         <h1>Cart</h1>
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-5 left">
                 <div class="product-image">
-                    <img src="img/william.jpg" alt="12">
+                    <img src="{% static 'img/william.jpg' %}" alt="12">
                 </div>
 
 
@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-md-5 left">
                 <div class="product-image">
-                    <img src="img/moby.jpg" alt="12">
+                    <img src="{% static 'img/moby.jpg' %}" alt="12">
                 </div>
 
 
@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-md-5 left">
                 <div class="product-image">
-                    <img src="img/billions.jpg" alt="12">
+                    <img src="{% static 'img/billions.jpg' %}" alt="12">
                 </div>
 
 

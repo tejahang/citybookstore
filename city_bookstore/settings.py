@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'books.apps.BooksConfig',
     'users.apps.UsersConfig',
+    'sorl.thumbnail'
 ]
 
 MIDDLEWARE = [

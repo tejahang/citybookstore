@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="single-product-box">
+        <h1>{{ book }} - {{ book.author }}</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-5 left">
+                <div class="product-image">
+                    <img src="{{ book.image.url }}" alt="12">
+                </div>
+
+
+            </div>
+
+            <div class="col-md-7 middle">
+                <h3>Price:<span class="book-info"> Rs. {{ book.price }}</span></h3>
+                <h3>Publisher:<span class="book-info">    {{ book.publisher }}</span></h3>
+                <h3>Published Year:<span class="book-info"> {{ book.published_year }}</span></h3>
+                <h3>Condition:<span class="book-info">  {{ book.condition }}</span></h3>
+                <h3>Cover Type:<span class="book-info"> {{ book.category }}</span></h3>
+                <h3>Language:<span class="book-info"> {{ book.language }}</span></h3>
+                <h3>ISBN:<span class="book-info"> {{ book.isbn }}</span></h3>
+                <h3>Pages:<span class="book-info"> 197</span></h3>
+                <h3 style="color: red;">Seller:<span class="book-info" style="color: red;"> {{ book.seller }}</span>
+                </h3>
+                <h3>Contact:<span class="book-info"> {{ book.contact }}</span></h3>
+                <a href=""><i class="far fa-star fa-2x"></i></a>
+                <a href=""><i class="far fa-star fa-2x"></i></a>
+                <a href=""><i class="far fa-star fa-2x"></i></a>
+                <a href=""><i class="far fa-star fa-2x"></i></a>
+                <a href=""><i class="far fa-star fa-2x"></i></a>
+
+                <input type="button" onclick="window.location.href=''" name="login-button" value="Add To Cart"/>
+
+            </div>
+
+            <div class="col-md-9 right">
+                <h3>Book Description:<span class="book-info">{{ book.description }}</span>
+                </h3>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div id="single-product-box-carosoul">
+
+        <div class="owl-carousel owl-theme">
+            {% for top in top_trending %}
+                <div class="item">
+                    <a href="{% url 'books:single-book-wise' top.slug %}">
+                        <img src="{{ top.image.url }}" class="img-fluid" alt="12">
+                        <h4>{{ top.short_name }}</h4>
+                        <h5>{{ top.author }}</h5>
+                        <h3>Price: Rs {{ top.price }}</h3>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

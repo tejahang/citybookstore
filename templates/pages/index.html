@@ -13,26 +13,9 @@
     <div id="index-box">
         <h2>Books Category</h2>
 
-        <a href=""><h3>Novel</h3></a>
-        <a href=""><h3>Education</h3></a>
-        <a href=""><h3>Comics</h3></a>
-        <a href=""><h3>For kids</h3></a>
-        <a href=""><h3>Cooking</h3></a>
-        <a href=""><h3>Driving lisence</h3></a>
-        <a href=""><h3>City guide</h3></a>
-        <a href=""><h3>Politics</h3></a>
-        <a href=""><h3>Medicine</h3></a>
-        <a href=""><h3>Stationery</h3></a>
-        <a href=""><h3>Magazing</h3></a>
-        <a href=""><h3>Biography</h3></a>
-        <a href=""><h3>History</h3></a>
-        <a href=""><h3>Health & Fitness</h3></a>
-        <a href=""><h3>Religion</h3></a>
-        <a href=""><h3>Travel</h3></a>
-        <a href=""><h3>Nepali</h3></a>
-        <a href=""><h3>LokSewa</h3></a>
-        <a href=""><h3>Technology</h3></a>
-        <a href=""><h3>Others</h3></a>
+        {% for category in categories %}
+            <a href="{% url 'books:category-wise' category.slug %}"><h3>{{ category.name }}</h3></a>
+        {% endfor %}
 
     </div>
 
@@ -42,63 +25,17 @@
     </div>
     <div class="latest-uploads-box">
         <div class="owl-carousel owl-theme">
-            <div class="item">
-                <a href="single-product.html">
-                    <img src="{% static 'img/moby.jpg' %}" class="img-fluid" alt="12">
-                    <h4>Moby Dick</h4>
-                    <h5>Herman Melville</h5>
-                    <h3>Price: Rs 949</h3>
-                </a>
+            {% for latest in latest_uploads %}
+                <div class="item">
+                    <a href="{% url 'books:single-book-wise' latest.slug %}">
+                        <img src="{{ latest.image.url }}" class="img-fluid" alt="12">
+                        <h4>{{ latest.short_name }}</h4>
+                        <h5>{{ latest.seller }}</h5>
+                        <h3>Price: Rs {{ latest.price }}</h3>
+                    </a>
 
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/planet.jpg' %}" class="img-fluid" alt="12">
-                    <h4>Diet for a Small Planet</h4>
-                    <h5>Frances Moore Lappe</h5>
-                    <h3>Price: Rs 649</h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/tomas.jpg' %}" class="img-fluid" alt="12">
-                    <h4>The Poems of Dylan Thomas</h4>
-                    <h5>Dylan Thomas</h5>
-                    <h3>Price: Rs 649</h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/william.jpg' %}" class="img-fluid" alt="12">
-                    <h4>King Lear</h4>
-                    <h5>William Shakespeare</h5>
-                    <h3>Price: Rs 549</h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/mind.jpg' %}" class="img-fluid" alt="12">
-                    <h4>Zen Mind, Beginner's Mind</h4>
-                    <h5>Shunryu Suzuki</h5>
-                    <h3>Price: Rs 1949</h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/dilemma.jpg' %}" class="img-fluid" alt="12">
-                    <h4>The Innovator's Dilemma</h4>
-                    <h5>Clayton M. Christensen</h5>
-                    <h3>Price: Rs 749</h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/diet.jpg' %}" class="img-fluid" alt="12">
-                    <h4>Muscusless Diet</h4>
-                    <h5>Arnold Ehret</h5>
-                    <h3>Price: Rs 659</h3>
-                </a>
-            </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -108,62 +45,16 @@
     </div>
     <div class="top-trending-box">
         <div class="owl-carousel owl-theme">
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/billions.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/rich.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/dale.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/better.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/everybody.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/face.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/yogi.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
+            {% for top in top_trending %}
+                <div class="item">
+                    <a href="{% url 'books:single-book-wise' top.slug %}">
+                        <img src="{{ top.image.url }}" class="img-fluid" alt="12">
+                        <h4>{{ top.short_name }}</h4>
+                        <h5>{{ top.author }}</h5>
+                        <h3>Price: Rs {{ top.price }}</h3>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -172,62 +63,16 @@
     </div>
     <div class="new-releases-box">
         <div class="owl-carousel owl-theme">
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/moby.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/planet.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/tomas.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>h3
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/william.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/mind.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/dilemma.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <img src="{% static 'img/diet.jpg' %}" class="img-fluid" alt="12">
-                    <h4></h4>
-                    <h5></h5>
-                    <h3></h3>
-                </a>
-            </div>
+            {% for new in new_releases %}
+                <div class="item">
+                    <a href="{% url 'books:single-book-wise' new.slug %}">
+                        <img src="{{ new.image.url }}" class="img-fluid" alt="12">
+                        <h4>{{ new.short_name }}</h4>
+                        <h5>{{ new.author }}</h5>
+                        <h3>Price: Rs {{ new.price }}</h3>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

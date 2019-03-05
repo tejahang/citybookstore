@@ -4,17 +4,23 @@
     <div id="sellmybook-box">
         <div class="sellmybook-left-box">
             <h1>Sell my book</h1>
-            <form>
-                <input type="text" name="Book name" placeholder="Book name"/>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
 
-                <input type="text" name="Price" placeholder="Price"/>
+                <input type="text" name="title" placeholder="Book name"/>
 
-                <input type="text" name="Publisher" placeholder="Publisher"/>
+                <input type="hidden" name="seller" value="{{ user.username }}">
+
+                <input type="text" name="author" placeholder="Author"/>
+
+                <input type="text" name="price" placeholder="Price"/>
+
+                <input type="text" name="publisher" placeholder="Publisher"/>
 
                 <h5>Published Year:</h5>
                 <select id="year" name="year">
                     <script>
-                        for (var i = 1900; i < 2019; i++) {
+                        for (var i = 1800; i < 2019; i++) {
                             document.write('<option value="' + i + '">' + i + '</option>');
                         }
                     </script>
@@ -22,7 +28,7 @@
                 </select>
 
                 <h5>Condition:</h5>
-                <select id="myselect-condition" class="dropdownbox">
+                <select id="myselect-condition" name="condition" class="dropdownbox">
                     <option>Brand New</option>
                     <option>Like New</option>
                     <option>Very Good</option>
@@ -30,45 +36,30 @@
                 </select>
 
                 <h5>Cover Type:</h5>
-                <select id="myselect-cover_type" class="dropdownbox">
+                <select id="myselect-cover_type" name="cover" class="dropdownbox">
                     <option>Hard</option>
                     <option>Soft</option>
                     <option>None</option>
                 </select>
 
                 <h5>Category:</h5>
-                <select id="myselect-category" class="dropdownbox">
-                    <option>Novel</option>
-                    <option>Education</option>
-                    <option>Comics</option>
-                    <option>For kids</option>
-                    <option>Cooking</option>
-                    <option>Driving lisence</option>
-                    <option>City guide</option>
-                    <option>Politics</option>
-                    <option>Medicine</option>
-                    <option>Stationery</option>
-                    <option>Magazing</option>
-                    <option>Biography</option>
-                    <option>History</option>
-                    <option>Health & Fitness</option>
-                    <option>Religion</option>
-                    <option>Travel</option>
-                    <option>Nepali</option>
-                    <option>LokSewa</option>
-                    <option>Technology</option>
-                    <option>Others</option>
+                <select id="myselect-category" name="category" class="dropdownbox">
+                    {% for key in categories %}
+                        <option key="{{ key.id }}" {% if key == key.category %}
+                                selected {% endif %}>{{ key }}</option>
+                    {% endfor %}
                 </select>
 
-                <input type="text" name="Language" placeholder="Language"/>
-                <input type="text" name="ISBN no." placeholder="ISBN no."/>
-                <input type="text" name="Total pages" placeholder="Total pages"/>
+                <input type="text" name="language" placeholder="Language"/>
+                <input type="text" name="isbn" placeholder="ISBN no."/>
+                <input type="text" name="contact" placeholder="Your Contact Number"/>
+                <input type="file" name="image">
                 <h5>Book Description:</h5>
-                <textarea name="message" class="form-control" placeholder="Book Description" rows="8"
+                <textarea name="description" class="form-control" placeholder="Book Description" rows="8"
                           required></textarea>
 
 
-                <input type="button" onclick="window.location.href=''" name="login-button" value="Sell"/>
+                <input type="submit" name="login-button" value="Sell"/>
             </form>
 
         </div>
