@@ -38,10 +38,12 @@
         <hr>
 
         <h2>
-            <form method="POST" action="{% url 'carts:checkout' %}">
-                {% csrf_token %}
-                <input type="submit" name="login-button" value="Checkout"/>
-            </form>
+            {% if my_cart %}
+                <form method="POST" action="{% url 'carts:checkout' %}">
+                    {% csrf_token %}
+                    <input type="submit" name="login-button" value="Checkout"/>
+                </form>
+            {% endif %}
         </h2>
 
     </div>

@@ -12,6 +12,8 @@ class BaseView(View):
 
 class LoginView(BaseView):
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('books:index')
         return render(request, 'pages/login.html')
 
     def post(self, request):
@@ -33,6 +35,8 @@ class LoginView(BaseView):
 
 class RegisterView(BaseView):
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('books:index')
         return render(request, 'pages/register.html')
 
     def post(self, request):
