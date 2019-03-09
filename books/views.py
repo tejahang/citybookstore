@@ -55,11 +55,6 @@ class WorksView(BaseView):
         return render(request, 'pages/how-it-works.html')
 
 
-class CartView(LoginRequiredMixin, BaseView):
-    def get(self, request):
-        return render(request, 'pages/cart.html')
-
-
 class CategoryWiseView(BaseView):
     def get(self, request, category_slug):
         self.context['category_wise'] = Category.objects.get(slug=category_slug)
@@ -71,3 +66,13 @@ class SingleWiseView(BaseView):
         self.context['book'] = Book.objects.get(slug=book_slug)
         self.context['top_trending'] = Book.objects.order_by('?')[:5]
         return render(request, 'pages/single-book.html', self.context)
+
+
+class SearchView(BaseView):
+    def get(self, request):
+        q = request.GET.get('q', None)
+        if not q:
+            return redirect('/')
+
+        self.context['search_results'] = Book.objects.filter(title__icontains=q)
+        return render(request, 'pages/search-results.html', self.context)

@@ -36,10 +36,10 @@
         <nav>
             <ul>
                 <li class="active">
-                    <input type="text" placeholder="Search books..." name="search">
-                    <a href="#">
+                    <form action="{% url 'books:search' %}" method="GET">
+                        <input type="text" placeholder="Search books..." name="q">
                         <button type="submit"><i class="fa fa-search"></i></button>
-                    </a>
+                    </form>
                 </li>
                 <li><a href="{% url 'books:sell-my-book' %}">Sell my book</a></li>
                 <li><a href="{% url 'books:how-it-works' %}">How it works</a></li>
@@ -51,7 +51,7 @@
                     <li><a href="{% url 'users:register' %}">Sign up</a></li>
                 {% endif %}
                 <li class=cart_btn>
-                    <a href="{% url 'books:cart' %}"><i class="fas fa-shopping-cart fa-2x"></i></a>
+                    <a href="{% url 'carts:cart' %}"><i class="fas fa-shopping-cart fa-2x"></i></a>
                 </li>
             </ul>
         </nav>
@@ -82,16 +82,16 @@
                 <li><a href="{% url 'users:login' %}">Log in</a></li>
                 <li><a href="{% url 'users:register' %}">Sign up</a></li>
             {% endif %}
-            <li><a href="{% url 'books:cart' %}">Cart</a></li>
+            <li><a href="{% url 'carts:cart' %}">Cart</a></li>
         </ul>
     </div>
 
 
     <div class="active">
-        <input type="text" placeholder="Search books..." name="search">
-        <a href="#">
+        <form action="{% url 'books:search' %}" method="GET">
+            <input type="text" placeholder="Search books..." name="q">
             <button type="submit"><i class="fa fa-search"></i></button>
-        </a>
+        </form>
     </div>
     </div>
 

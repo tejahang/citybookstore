@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'books.apps.BooksConfig',
     'users.apps.UsersConfig',
-    'sorl.thumbnail'
+    'sorl.thumbnail',
+    'carts.apps.CartsConfig'
 ]
 
 MIDDLEWARE = [
@@ -127,7 +128,11 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# this is where requests are redirected for login for login_required() decorators
 LOGIN_URL = 'users:login'
+
+# this is where django redirects user after successful logout
+LOGOUT_REDIRECT_URL = 'books:index'
 
 # Messages
 from django.contrib.messages import constants as messages

@@ -40,3 +40,6 @@ class Book(models.Model):
             return self.title[:20] + '...' + self.title[-4:]
 
         return self.title
+
+
+

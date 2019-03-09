@@ -8,8 +8,8 @@
             <h1>Log in</h1>
             <form method="POST">
                 {% csrf_token %}
-                <input type="text" name="username" placeholder="Username" required/>
-                <input type="password" name="password" placeholder="Password" required/>
+                <input type="text" name="username" placeholder="Username" value="{{ username }}" required/>
+                <input type="password" name="password" placeholder="Password" value="{{ password }}" required/>
 
                 <input type="submit" name="login-button" value="log in"/>
             </form>

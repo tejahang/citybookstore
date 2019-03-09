@@ -4,12 +4,12 @@
 
 {% block content %}
     <div id="category-novel-box">
-        <h1>{{ category_wise }}</h1>
+        <h1>Search Results</h1>
         <hr>
 
         <div class="row">
-            {% if category_wise %}
-                {% for book in category_wise.book_set.all %}
+            {% if search_results %}
+                {% for book in search_results %}
                     <div class="col-md-3 one">
                         <a href="{% url 'books:single-book-wise' book.slug %}">
                             <div class="book-top">
@@ -23,21 +23,11 @@
                             </div>
                         </a>
 
-                        <form method="POST" action="{% url 'carts:cart' %}">
-                            {% csrf_token %}
-                            <input type="hidden" name="book" value="{{ book.short_name }}">
-                            <input type="hidden" name="price" value="{{ book.price }}">
-                            <input type="hidden" name="user_id" value="{{ user.id }}">
-                            <input type="hidden" name="image" value="{{ book.image.url }}">
-                            <input type="submit" name="login-button" value="Add To Cart"/>
-                        </form>
-
-
-{#                        <input type="button" name="login-button" value="Add To Cart"/>#}
+                        <input type="button" name="login-button" value="Add To Cart"/>
                     </div>
                 {% endfor %}
             {% else %}
-                <h3>Sorry, we do not have books on this category.</h3>
+                <h3>Sorry, we do not have books matching your request.</h3>
             {% endif %}
         </div>
 

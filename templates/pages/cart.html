@@ -4,96 +4,45 @@
     <div id="cart-box">
         <h1>Cart</h1>
         <hr>
+        {% for item in my_cart %}
+            <div class="row">
+                <div class="col-md-5 left">
+                    <div class="product-image">
+                        <img src="{{ item.image }}" alt="12">
+                    </div>
 
-        <div class="row">
-            <div class="col-md-5 left">
-                <div class="product-image">
-                    <img src="{% static 'img/william.jpg' %}" alt="12">
+
+                </div>
+
+                <div class="col-md-7 middle">
+                    <h3>Book Name:<span class="book-info"> {{ item.book }}</span></h3>
+                    <h3>Price:<span class="book-info"> Rs. {{ item.price }}</span></h3>
+                    <h3>Costumer Id:<span class="book-info">   {{ item.user_id }}</span></h3>
+                    <h3>Quantity:<span class="book-info"> 1</span></h3>
+
+
+                    {#                    <div class="green">#}
+                    {#                        <input type="button" onclick="window.location.href=''" name="login-button" value="Details"/>#}
+                    {#                    </div>#}
+                    {#                    <div class="red">#}
+                    {#                        <input type="button" onclick="window.location.href=''" name="login-button"#}
+                    {#                               value="Remove from cart"/>#}
+                    {#                    </div>#}
+
                 </div>
 
 
             </div>
-
-            <div class="col-md-7 middle">
-                <h3>Book Name:<span class="book-info"> King Lear</span></h3>
-                <h3>Price:<span class="book-info"> Rs. 949</span></h3>
-                <h3>Publisher:<span class="book-info">    William Publication</span></h3>
-                <h3>Contact:<span class="book-info"> 9840025678</span></h3>
-                <h3>Quantity:<span class="book-info"> 2</span></h3>
-
-
-                <div class="green">
-                    <input type="button" onclick="window.location.href=''" name="login-button" value="Details"/>
-                </div>
-                <div class="red">
-                    <input type="button" onclick="window.location.href=''" name="login-button"
-                           value="Remove from cart"/>
-                </div>
-
-            </div>
-
-        </div>
+        {% endfor %}
 
         <hr>
 
-        <div class="row">
-            <div class="col-md-5 left">
-                <div class="product-image">
-                    <img src="{% static 'img/moby.jpg' %}" alt="12">
-                </div>
-
-
-            </div>
-
-            <div class="col-md-7 red middle">
-                <h3>Book Name:<span class="book-info"> Moby Dick</span></h3>
-                <h3>Price:<span class="book-info"> Rs. 949</span></h3>
-                <h3>Publisher:<span class="book-info"> Writers Publication</span></h3>
-                <h3>Contact:<span class="book-info"> 9840025678</span></h3>
-                <h3>Quantity:<span class="book-info"> 1</span></h3>
-
-                <div class="green">
-                    <input type="button" onclick="window.location.href=''" name="login-button" value="Details"/>
-                </div>
-                <div class="red">
-                    <input type="button" onclick="window.location.href=''" name="login-button"
-                           value="Remove from cart"/>
-                </div>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-            <div class="col-md-5 left">
-                <div class="product-image">
-                    <img src="{% static 'img/billions.jpg' %}" alt="12">
-                </div>
-
-
-            </div>
-
-            <div class="col-md-7 red middle">
-                <h3>Book Name:<span class="book-info"> The Accidental Billionaires</span></h3>
-                <h3>Price:<span class="book-info"> Rs. 1049</span></h3>
-                <h3>Publisher:<span class="book-info"> Rich Publication</span></h3>
-                <h3>Contact:<span class="book-info"> 9840025678</span></h3>
-                <h3>Quantity:<span class="book-info"> 1</span></h3>
-
-
-                <div class="green">
-                    <input type="button" onclick="window.location.href=''" name="login-button" value="Details"/>
-                </div>
-                <div class="red">
-                    <input type="button" onclick="window.location.href=''" name="login-button"
-                           value="Remove from cart"/>
-                </div>
-            </div>
-        </div>
-
-        <hr>
-
-        <h2>Total: Rs. 2947</h2>
+        <h2>
+            <form method="POST" action="{% url 'carts:checkout' %}">
+                {% csrf_token %}
+                <input type="submit" name="login-button" value="Checkout"/>
+            </form>
+        </h2>
 
     </div>
 {% endblock %}

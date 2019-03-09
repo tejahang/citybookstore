@@ -7,6 +7,10 @@
         <div class="container">
             <h1>GET BOOKS</h1>
             <p>Buy and sell books at affordable prices</p>
+            <div style="color: red;">
+                {% include '_alerts.html' %}
+            </div>
+
         </div>
     </section>
 
@@ -30,7 +34,7 @@
                     <a href="{% url 'books:single-book-wise' latest.slug %}">
                         <img src="{{ latest.image.url }}" class="img-fluid" alt="12">
                         <h4>{{ latest.short_name }}</h4>
-                        <h5>{{ latest.seller }}</h5>
+                        <h5>{{ latest.author }}</h5>
                         <h3>Price: Rs {{ latest.price }}</h3>
                     </a>
 

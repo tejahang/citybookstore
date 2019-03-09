@@ -25,8 +25,10 @@ class LoginView(BaseView):
             auth.login(request, user)
             return redirect('books:index')
         else:
+            context = {'username': username, 'password': password}
             messages.error(request, 'Invalid username or password.')
-            return redirect('users:login')
+            # return redirect('users:login')
+            return render(request, 'pages/login.html', context)
 
 
 class RegisterView(BaseView):
@@ -67,6 +69,3 @@ class RegisterView(BaseView):
         else:
             messages.error(request, 'Passwords don\'t match')
             return redirect('users:register')
-
-
-
