@@ -54,11 +54,17 @@ class RegisterView(BaseView):
         if password1 == password2:
             # Check if user already exists !
             if User.objects.filter(username=username).exists():
+                context = {'first_name': first_name, 'last_name': last_name, 'username': username,
+                           'password': password1, 'email': email}
                 messages.error(request, 'Username already exists')
-                return redirect('users:register')
+                # return redirect('users:register')
+                return render(request, 'pages/register.html', context)
             else:
                 if User.objects.filter(email=email).exists():
+                    context = {'first_name': first_name, 'last_name': last_name, 'username': username,
+                               'password': password1, 'email': email}
                     messages.error(request, 'That email is being used')
+                    return render(request, 'pages/register.html', context)
                 else:
                     # Looks Good !!
                     user = User.objects.create_user(username=username, password=password1, email=email,
@@ -71,5 +77,7 @@ class RegisterView(BaseView):
                     messages.success(request, 'You are now registerd and can log in.')
                     return redirect('users:login')
         else:
+            context = {'first_name': first_name, 'last_name': last_name, 'username': username,
+                       'password': password1, 'email': email}
             messages.error(request, 'Passwords don\'t match')
-            return redirect('users:register')
+            return render(request, 'pages/register.html', context)

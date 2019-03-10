@@ -18,7 +18,7 @@ class Category(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=50)
-    price = models.IntegerField()
+    price = models.CharField(max_length=10)
     slug = AutoSlugField(populate_from='title')
     image = models.FileField(upload_to='photos')
     publisher = models.CharField(max_length=30)

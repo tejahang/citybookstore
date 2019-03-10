@@ -7,15 +7,15 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
-                <input type="text" name="title" placeholder="Book name"/>
+                <input type="text" name="title" placeholder="Book name" required/>
 
                 <input type="hidden" name="seller" value="{{ user.username }}">
 
-                <input type="text" name="author" placeholder="Author"/>
+                <input type="text" name="author" placeholder="Author" required/>
 
-                <input type="text" name="price" placeholder="Price"/>
+                <input type="text" name="price" placeholder="Price" required/>
 
-                <input type="text" name="publisher" placeholder="Publisher"/>
+                <input type="text" name="publisher" placeholder="Publisher" required/>
 
                 <h5>Published Year:</h5>
                 <select id="year" name="year">
@@ -50,10 +50,10 @@
                     {% endfor %}
                 </select>
 
-                <input type="text" name="language" placeholder="Language"/>
-                <input type="text" name="isbn" placeholder="ISBN no." maxlength="13"/>
-                <input type="text" name="contact" placeholder="Your Contact Number" maxlength="10"/>
-                <input type="file" name="image">
+                <input type="text" name="language" placeholder="Language" required/>
+                <input type="text" name="isbn" placeholder="ISBN no." maxlength="13" required/>
+                <input type="text" name="contact" placeholder="Your Contact Number" maxlength="10" required/>
+                <input type="file" name="image" required>
                 <h5>Book Description:</h5>
                 <textarea name="description" class="form-control" placeholder="Book Description" rows="8"
                           required></textarea>
