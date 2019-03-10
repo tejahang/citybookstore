@@ -23,7 +23,15 @@
                             </div>
                         </a>
 
-                        <input type="button" name="login-button" value="Add To Cart"/>
+                        <form method="POST" action="{% url 'carts:cart' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="book" value="{{ book }}">
+                            <input type="hidden" name="price" value="{{ book.price }}">
+                            <input type="hidden" name="user_id" value="{{ user.id }}">
+                            <input type="hidden" name="image" value="{{ book.image.url }}">
+                            <input type="submit" name="login-button" value="Add To Cart"/>
+                        </form>
+{#                        <input type="button" name="login-button" value="Add To Cart"/>#}
                     </div>
                 {% endfor %}
             {% else %}

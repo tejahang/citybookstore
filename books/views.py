@@ -9,7 +9,7 @@ from .models import Category, Book
 
 class BaseView(View):
     context = {
-        'categories': Category.objects.all()
+        'categories': Category.objects.order_by('-id')
     }
 
 
