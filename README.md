@@ -19,10 +19,6 @@ Although a prototype, it still packs enough to be called a lightweight e-commerc
 - mysqlclient==1.4.2.post1
 - sorl-thumbnail==12.5.0
 
-
-> **Note:** The **Publish now** button is disabled if your file has not been published yet.
-
-
 ## Installation
 
 - clone or download the project
