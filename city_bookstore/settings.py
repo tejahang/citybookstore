@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'zx=tf)%t0l(#q6**tvm_m^6!@t7%c3yw+m(ywsq7c+gqkac2+2'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'city_bookstore',
         'USER': 'root',
-        'PASSWORD': 'Coltar15xmi77e2',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': ''
     }
