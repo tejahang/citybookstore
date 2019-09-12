@@ -32,5 +32,5 @@ Although a prototype, it still packs enough to be called a lightweight e-commerc
 	```
 - start server
 	```sh
-	python manage.py startserver
+	python manage.py runserver
 	```
