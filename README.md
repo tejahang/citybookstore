@@ -1,6 +1,6 @@
 # Welcome to citybookstore!
 
-**citybookstore** is an online platform for buying/selling used books. However, this is only a working prototype.
+**citybookstore** is an online platform for buying/selling used books.
 
 
 ## Features
